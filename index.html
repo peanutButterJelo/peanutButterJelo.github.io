@@ -201,7 +201,6 @@
             webview)</li>
         <li><a href="https://t.me/like">LikeBot t.me link</a> (opens inside Telegram app)</li>
         <li><a href="tg://resolve?domain=vote">VoteBot tg:// link</a> (does not open)</li>
-        <li><a href="?botdata=something" onclick="alert('you have clicked on a bot')">click to alert bot detail</a></li>
     </ul>
 
     <h3>Test permissions</h3>
@@ -217,6 +216,9 @@
         <li>
             <a href="javascript:;" onclick="return requestAudio();">Request Audio</a>
             <span id="audioData"></span>
+        </li>
+        <li>
+            <a href="?botid=something" onclick="alertBotData();">Bot Data</a>
         </li>
     </ul>
 
@@ -304,6 +306,11 @@
             document.querySelector('#audioData').innerHTML = '(Media devices is not supported in this browser)';
         }
         return false;
+    }
+
+    function alertBotData() {
+        let app = new URLSearchParams(window.location.search).get('botid')
+        window.alert(app)
     }
 </script>
 </body>
